@@ -205,7 +205,6 @@ class CalcApp(ttk.Frame):
                 else:
                     pass
             else:
-                print('koko')
                 self.count_list.append("*")
             self.count_list.append(char)
             self.display_list.append(char)
