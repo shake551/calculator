@@ -92,7 +92,7 @@ class CalcApp(ttk.Frame):
         char = event.widget["text"]
 
         #最後に押したボタンの内容
-        last = self.count_list[-1]
+        last = self.display_list[-1]
         
         if char == "=":
             #一個前が演算子ならそれを消す
@@ -183,11 +183,11 @@ class CalcApp(ttk.Frame):
                         self.count_list.pop(-1)
                         self.display_list.pop(-1)
                     elif last == OPERATOR:
-                        a = 1
+                        pass
                     elif last == TRIGONO:
-                        a = 1
+                        pass
                     elif last == "(":
-                        a = 1
+                        pass
                     else:
                         self.count_list.append("*")
                     self.count_list.append("np.pi")
@@ -198,12 +198,19 @@ class CalcApp(ttk.Frame):
                 self.count_list.pop(-1)
                 self.display_list.pop(-1)
             elif last in OPERATOR:
-                a = 1
+                pass
             elif last in TRIGONO:
                 if last == "π":
                     self.count_list.append("*")
+                else:
+                    pass
             else:
+                print('koko')
                 self.count_list.append("*")
+            self.count_list.append(char)
+            self.display_list.append(char)
+
+        elif char == ")":
             self.count_list.append(char)
             self.display_list.append(char)
 
